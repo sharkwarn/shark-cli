@@ -15,6 +15,7 @@ program
   .alias('i')
   .action(function(){
       console.log('init')
+      require('../src/index')()
   })
 program.parse(process.argv)
 
