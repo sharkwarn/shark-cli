@@ -10,12 +10,12 @@ program
   .usage('<command>')
 
 program
-  .command('init')
-  .description('init a node + es6 template')
-  .alias('i')
+  .command('add')
+  .description('add a template')
+  .alias('a')
   .action(function(){
-      console.log('init')
-      require('../src/index')()
+      console.log('add a template!!!')
+      require('../src/index').add()
   })
 program.parse(process.argv)
 

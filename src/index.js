@@ -1,5 +1,5 @@
-const utils = require('./utils/index')
+const add = require('./addTemplate/index')
 
-const test = utils.test
-
-module.exports = test
+module.exports = {
+    add
+}
