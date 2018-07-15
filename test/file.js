@@ -16,6 +16,10 @@ function createDir(path) {
     return  true
 }
 
-createDir('./xiaowu')
+// createDir('./xiaowu')
 
-copyFile('./spawn.js', './xiaowu/a.js')
+// copyFile('./spawn.js', './xiaowu/a.js')
+
+fs.copyFile('./xiaowu.js', './xiaowu2.js', (err) => {
+    console.log(err)
+})
