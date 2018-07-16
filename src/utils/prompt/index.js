@@ -34,39 +34,24 @@ async function getFileName(question) {
     return fileName
 }
 
-async function CMD( tool, ...arg ) {
-    return new Promise((reslove, reject)=>{
-        let child
-        if( tool.includes('npm') ){
-            child = spawn(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', ...arg);
-        }else {
-            child = spawn(tool, ...arg);
+
+async function getTemplate(question) {
+    let fileName
+    while( true ) {
+        const res = await prompt(question)
+        if( !res ) {
+            continue
         }
-
-        child.stdout.on('data', (data) => {
-            if( Buffer.isBuffer(data) ) {
-                reslove(data.toString())
-            }else{
-                reslove(data)
-            }
-            
-        });
-
-        child.stderr.on('data', (data) => {
-            console.log(`出现错误: ${data}`)
-            reject(data)
-        });
-
-        child.on('close', (code) => {
-            
-        });
-    })
-    
+        if( res ) {
+            fileName = res
+            break
+        }
+    }
+    return fileName
 }
 
 module.exports = {
     prompt,
     getFileName,
-    CMD,
-    copyFiles
+    getTemplate
 }
