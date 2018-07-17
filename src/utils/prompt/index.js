@@ -3,8 +3,6 @@ const fs = require('fs')
 var path = require('path')
 const { spawn } = require('child_process')
 
-const copyFiles = require('./file.js')
-
 function prompt(question) {
     return new Promise((resolve, reject) => {
         const rl = readline.createInterface({
