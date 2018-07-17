@@ -17,6 +17,14 @@ program
       console.log('add a template!!!')
       require('../src/index').add()
   })
+program
+  .command('clone')
+  .description('clone a template')
+  .alias('c')
+  .action(function(){
+      console.log('clone a template!!!')
+      require('../src/index').clone()
+  })
 program.parse(process.argv)
 
 if(!program.args.length){
